@@ -1,0 +1,5 @@
+WEBHOOK = https://api.telegram.org/bot5381156800:AAHWpXiM-pJhzq-VfR_82pXx8_3crcDBIAo/setwebhook?url=https://dashboardobl.com/amegbisbot/
+GETUPDATE = https://api.telegram.org/bot5381156800:AAHWpXiM-pJhzq-VfR_82pXx8_3crcDBIAo/getUpdates
+DELETEWEBHOOK = https://api.telegram.org/bot5381156800:AAHWpXiM-pJhzq-VfR_82pXx8_3crcDBIAo/deleteWebhook
+LINKPBASO = https://dashboardobl.com/amegbisbot/pbaso.php
+LINKENDDATE = https://dashboardobl.com/amegbisbot/enddate.php

@@ -22,9 +22,9 @@ if ($content) {
             "/des_enddate\nMenampilkan End Date segmen DES\n\n" .
             "/dgs_enddate\nMenampilkan End Date segmen DGS\n\n" .
             "/dbs_enddate\nMenampilkan End Date segmen DBS\n\n" .
-            "https://9b60-180-250-126-146.ngrok.io/segmenegbis_bot/excelPbaso.php\n" .
+            "https://dashboardobl.com/segmenegbisbot/excelPbaso.php\n" .
             "Klik link diatas ini untuk mendownload data pbaso format xlsx\n\n" .
-            "https://9b60-180-250-126-146.ngrok.io/segmenegbis_bot/excelEnddate.php\n" .
+            "https://dashboardobl.com/segmenegbisbot/excelEnddate.php\n" .
             "Klik link diatas ini untuk mendownload data enddate format xlsx\n\n";
 
         $send = [
@@ -44,8 +44,10 @@ if ($content) {
             "/des_enddate\nMenampilkan End Date segmen DES\n\n" .
             "/dgs_enddate\nMenampilkan End Date segmen DGS\n\n" .
             "/dbs_enddate\nMenampilkan End Date segmen DBS\n\n" .
-            "https://c422-180-250-126-146.ngrok.io/tr6bot/saveexcel.php\n" .
-            "Klik link diatas ini untuk mendownload respon pbaso format xlsx";
+            "https://dashboardobl.com/segmenegbisbot/excelPbaso.php\n" .
+            "Klik link diatas ini untuk mendownload data pbaso format xlsx\n\n" .
+            "https://dashboardobl.com/segmenegbisbot/excelEnddate.php\n" .
+            "Klik link diatas ini untuk mendownload data enddate format xlsx\n\n";
 
         $send = [
             'text' => "$command",

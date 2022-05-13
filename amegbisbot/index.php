@@ -1,8 +1,7 @@
 <?php
 require 'functions.php';
 
-$content = file_get_contents("php://input"); // Untuk registrasi.
-// Untuk pengiriman data nya tidak pakai input.
+$content = file_get_contents("php://input");
 
 if ($content) {
     $token = "5381156800:AAHWpXiM-pJhzq-VfR_82pXx8_3crcDBIAo";
