@@ -44,11 +44,19 @@ if ($content) {
         $strArray = explode(' ', $data);
         $nik = $strArray[1];
 
-        $cek_data = mysqli_query($conn, "SELECT nik FROM pbaso WHERE nik = '$nik'");
+        $cek_data = mysqli_query($conn, "SELECT nik FROM am WHERE nik = '$nik'");
 
         if (empty($nik)) {
             $send = [
                 'text' => "<b>Format respon belum lengkap.</b>",
+                'chat_id' => $chatId,
+                'parse_mode' => 'html'
+            ];
+            file_get_contents($apiUrl . "sendmessage?" . http_build_query($send));
+            exit();
+        } else if (strlen($nik) < 5 or strlen($nik) > 6) {
+            $send = [
+                'text' => "<b>Format respon salah.</b>",
                 'chat_id' => $chatId,
                 'parse_mode' => 'html'
             ];
@@ -62,15 +70,7 @@ if ($content) {
             ];
             file_get_contents($apiUrl . "sendmessage?" . http_build_query($send));
             exit();
-        } else if (!is_numeric($nik) or strlen($nik) < 5 or strlen($nik) > 6) {
-            $send = [
-                'text' => "<b>Format respon salah.</b>",
-                'chat_id' => $chatId,
-                'parse_mode' => 'html'
-            ];
-            file_get_contents($apiUrl . "sendmessage?" . http_build_query($send));
-            exit();
-        } else if (is_numeric($nik)) {
+        } else if (is_numeric($nik) or !is_numeric($nik)) {
             $cek_user = mysqli_query($conn, "SELECT nik FROM users WHERE nik = '$nik'");
             if (mysqli_fetch_assoc($cek_user)) {
                 $send = [
@@ -81,7 +81,9 @@ if ($content) {
                 file_get_contents($apiUrl . "sendmessage?" . http_build_query($send));
                 exit();
             } else {
-                mysqli_query($conn, "INSERT INTO users (nik, chat_id) VALUES ('$nik', $chatId)");
+                $query = query("SELECT agree_createdby_name FROM am WHERE nik = '$nik'")[0];
+                $nama_am = $query["agree_createdby_name"];
+                mysqli_query($conn, "INSERT INTO users (nik, nama_am, chat_id) VALUES ('$nik', '$nama_am', $chatId)");
                 $command = "<b>Data telah terdaftar.</b>";
                 $command2 = "<b>> Data Pending BASO akan dikirimkan setiap tanggal 8 per bulannya. Silahkan respon data Pending BASO sesuai format yang telah diberikan.\n\n" .
                     "> Data End Date akan dikirimkan setiap tanggal 4 per bulannya.</b>";
