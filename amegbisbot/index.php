@@ -81,9 +81,10 @@ if ($content) {
                 file_get_contents($apiUrl . "sendmessage?" . http_build_query($send));
                 exit();
             } else {
-                $query = query("SELECT agree_createdby_name FROM am WHERE nik = '$nik'")[0];
-                $nama_am = $query["agree_createdby_name"];
-                mysqli_query($conn, "INSERT INTO users (nik, nama_am, chat_id) VALUES ('$nik', '$nama_am', $chatId)");
+                $query = query("SELECT nama_am, witel FROM am WHERE nik = '$nik'")[0];
+                $nama_am = $query["nama_am"];
+                $witel = $query["witel"];
+                mysqli_query($conn, "INSERT INTO users (nik, nama_am, witel, chat_id) VALUES ('$nik', '$nama_am', '$witel', $chatId)");
                 $command = "<b>Data telah terdaftar.</b>";
                 $command2 = "<b>> Data Pending BASO akan dikirimkan setiap tanggal 8 per bulannya. Silahkan respon data Pending BASO sesuai format yang telah diberikan.\n\n" .
                     "> Data End Date akan dikirimkan setiap tanggal 4 per bulannya.</b>";
